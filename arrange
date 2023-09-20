@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ "$1" == "ls" ]; then
+  name="$2"
+  for file in files/"$name"*
+  do mv "$file" "$name"/
+  done
+
+  uppercase=$(echo "$name" | tr '[:lower:]' '[:upper:]')
+  for file in files/"$uppercase"*
+  do mv "$file" "$uppercase"/
+  done
+  ls "$name"
+fi
